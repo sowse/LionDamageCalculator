@@ -61,19 +61,20 @@ function spikeDamage() {
 };
 
 function damageSourceSum(dmg_src_arr) {
+    let dmgSources = dmg_src_arr;
     let dmgSum = 0;
-    for(i=0; i < dmg_src_arr; i++) {
-        dmgSum += dmg_src_arr[i];
+    for(let i=0; i < dmgSources.length; i++) {
+        dmgSum += dmgSources[i];
     };
 
     return dmgSum;
-}
+};
 
 function outboundAmpMult() {
     let outboundAmpMult = 100;
     let outAmpList = document.getElementsByClassName("outboundAmpSource");
 
-    for (i=0; i < outAmpList.length; i++) {
+    for (let i=0; i < outAmpList.length; i++) {
         if(outAmpList[i].checked) {
             outboundAmpMult += parseInt(outAmpList[i].value);
         };
@@ -86,7 +87,7 @@ function inboundAmpMult() {
     let inboundAmpMult = 100;
     let inAmpList = document.getElementsByClassName("inboundAmpSource");
 
-    for (i=0; i < inAmpList.length; i++) {
+    for (let i=0; i < inAmpList.length; i++) {
         if(inAmpList[i].checked) {
             inboundAmpMult += parseInt(inAmpList[i].value);
         };
@@ -108,7 +109,7 @@ function magicResCalc() {
 function magicResModifierCalc() {
     let magicResModifierList = document.getElementsByClassName("magicResModifier");
     let magicResFinalModifier = 1
-    for(i=0; i < magicResModifierList.length; i++) {
+    for(let i=0; i < magicResModifierList.length; i++) {
         if(magicResModifierList[i].checked) {
             hasChecked = true;
             magicResFinalModifier *= (1-magicResModifierList[i].value/100.0);
@@ -119,12 +120,13 @@ function magicResModifierCalc() {
 }
 
 function damageCalc(dmg_src_arr, debuff) {
-    let baseRes = document.getElementById("magicRes").value / 100;
+    let baseRes = (document.getElementById("magicRes").value / 100);
     let burst = damageSourceSum(dmg_src_arr) * ampMult()
+    console.log(burst);
     if(debuff==true) {
-        let res=(1-magicResCalc());
+        res=(1-magicResCalc());
     } else {
-        let res=(1-baseRes);
+        res=(1-baseRes);
     };
     return (burst*res).toFixed(2);
 };
@@ -133,6 +135,6 @@ function damageCalc(dmg_src_arr, debuff) {
 function displayOutput() {
     fingerOnly=fingerFinalDamage();
     fullBurst=[[fingerFinalDamage(),dagonDamage(),spikeDamage()], true];
-    document.getElementById("damageResult").innerHTML = damageCalc(fingerOnly, false);
-    document.getElementById("pipResult").innerHTML= Math.floor((burstCalc()/250));
+    document.getElementById("damageResult").innerHTML = damageCalc([fingerOnly], true);
+    document.getElementById("pipResult").innerHTML= Math.floor((damageCalc()/250));
 };
