@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lion Burst Damage Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <script src="index.js"></script>
+        <main>
+            <h1>Lion Burst Damage Calculator</h1>
+            <div id="mainBox">
+                <div class="subBox">
+                    <h2 class="subHeading">Damage Sources</h2>
+                        <div class="dmgSourceContainer">
+                            <h3>Finger of Death Level</h3>
+                                <input class="dmgSource" type="number" min="1" max="3" value="1" id="fingerInput">
+
+                                <div class="optionBox">
+                                    <input type="checkbox" id="Agha" name="Agha" value="100">
+                                    <label for="Agha">Aghanim's Scepter</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dmgSourceContainer">
+                            <h3>Finger of Death Stacks</h3>
+                            <input class="dmgSource" type="number" min="0" max="999" value="0" id="stackInput">
+
+                            <div class="optionBox">
+                                <input type="checkbox" id="Talent" name="Talent" value="20">
+                                <label for="Talent">Level 20 Talent</label>
+                            </div>
+                        </div>
+
+                        <div class="dmgSourceContainer">
+                            <h3>Dagon Level</h3>
+                            <input class="dmgSource" type="number" min="0" max="5" value="0" id="dagonInput">
+                        </div>
+
+                        <div class="dmgSourceContainer">
+                            <h3>Earth Spike Level</h3>
+                            <input class="dmgSource" type="number" min="0" max="4" value="0" id="spikeInput">
+                        
+                            <div class="optionBox">
+                                <input type="checkbox" id="spikeTalent" name="spikeTalent" value="65">
+                                <label for="spikeTalent">Level 10 Talent</label>
+                            </div>
+                        </div>
+                <div class="subBox">
+                    <h2>Damage Amplification Sources</h2>        
+                    <div id="outboundAmpSources">
+                        <fieldset id="kayaMult">
+                            <legend>Kaya / Ethereal Blade</legend>
+                            <input class="outboundAmpSource" type="radio" id="kayaNone" name="kayaEth" value="0" checked>
+                            <label for="kayaNone">None</label>
+                            <input class="outboundAmpSource" type="radio" id="Kaya" name="kayaEth" value="8">
+                            <label for="Kaya">Kaya</label>
+                            <input class="outboundAmpSource" type="radio" id="Ethereal" name="kayaEth" value="12">
+                            <label for="Ethereal">Ethereal Blade</label>
+                        </fieldset>
+
+                        
+                        <fieldset id="neutralMult">
+                            <legend>Neutral Item</legend>
+                                <input class="outboundAmpSource" type="radio" id="neutralNone" name="neutralItem" value="0" checked>
+                                <label for="neutralNone">None</label>
+                                <input class="outboundAmpSource" type="radio" id="neutralFairy" name="neutralItem" value="5">
+                                <label for="neutralFairy">Fairy's Trinket</label>
+                                <input class="outboundAmpSource" type="radio" id="neutralShawl" name="neutralItem" value="6">
+                                <label for="neutralShawl">Nether Shawl</label>
+                                <input class="outboundAmpSource" type="radio" id="neutralRelic" name="neutralItem" value="15">
+                                <label for="neutralRelic">Timeless Relic</label>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="subBox">
+                    <h2 class="subHeading">Target Magic Resistance / Damage Reduction</h2>
+
+                    <input type="number" id="magicRes" min="-999" max="100" value="25">
+                    <label for="magicRes">Magic Resistance (%)</label>
+
+                    <div class="tickBox">
+                        <input type="checkbox" class="magicResModifier" id="Ethereal" name="Ethereal" value="-40">
+                        <label for="Ethereal">Ether Blast?</label>
+                    </div>
+                </div>
+
+                <div class="subBox">
+                    <h2 class="subHeading">Burst Threshold</h2>
+                    <div id="resultGrid">
+                        <div class="result">
+                            <h3>Total Damage</h3>
+                            <p id="damageResult"></p>
+                        </div>
+                        <div class="result">
+                            <h3>HP Pips</h3>
+                            <p id="pipResult"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="calcButtonBox">
+                    <button id="calcButton" onclick="displayOutput()">Calculate</button>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
