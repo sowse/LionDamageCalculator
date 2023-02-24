@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Lion Burst Damage Calculator</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="lion.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;1,300&display=swap" rel="stylesheet"> 
     </head>
 
     <body>
@@ -11,12 +14,45 @@
         <main>
             <h1>Lion Burst Damage Calculator</h1>
             <div id="mainBox">
+                <div id="resultsBox">
+                    <h2 class="subHeading">Kill Thresholds</h2>
+                    <div id="dmgCalcsBox">
+                        <div id="dmgColHeadings">
+                            <span class="dmgColHeading">Finger of Death only</span>
+                            <span class="dmgColHeading">Finger + Ether Blast</span>
+                            <span class="dmgColHeading">Full Burst</span>
+                        </div>
+
+                        <div id="dmgRowHeadings">
+                            <span class="dmgRowHeading">Raw HP</span>
+                            <span class="dmgRowHeading">HP Pips (250)</span>
+                        </div>
+
+                        <div class="dmgValueArea" id="rawDmgArea">
+                            <span id="rawFingerOnly"></span>
+                            <span id="rawFingerEther"></span>
+                            <span id="rawBurst"></span>
+                        </div>
+
+                        <div class="dmgValueArea" id="pipDmgArea">
+                            <span id="pipFingerOnly"></span>
+                            <span id="pipFingerEther"></span>
+                            <span id="pipBurst"></span>
+                        </div>
+
+                    </div>
+    
+                    <div id="calcButtonBox">
+                        <button id="calcButton" onclick="displayOutput()">Calculate</button>
+                    </div>
+                </div>
+
                 <div class="subBox">
                     <h2 class="subHeading">Damage Sources</h2>
+                    <div id="dmgSrcList">
                         <div class="dmgSourceContainer">
                             <h3>Finger of Death Level</h3>
                                 <input class="dmgSource" type="number" min="1" max="3" value="1" id="fingerInput">
-
                                 <div class="optionBox">
                                     <input type="checkbox" id="Agha" name="Agha" value="100">
                                     <label for="Agha">Aghanim's Scepter</label>
@@ -27,7 +63,6 @@
                         <div class="dmgSourceContainer">
                             <h3>Finger of Death Stacks</h3>
                             <input class="dmgSource" type="number" min="0" max="999" value="0" id="stackInput">
-
                             <div class="optionBox">
                                 <input type="checkbox" id="Talent" name="Talent" value="20">
                                 <label for="Talent">Level 20 Talent</label>
@@ -48,6 +83,10 @@
                                 <label for="spikeTalent">Level 10 Talent</label>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+
                 <div class="subBox">
                     <h2>Damage Amplification Sources</h2>        
                     <div id="outboundAmpSources">
@@ -86,24 +125,6 @@
                         <input type="checkbox" class="magicResModifier" id="Ethereal" name="Ethereal" value="-40">
                         <label for="Ethereal">Ether Blast?</label>
                     </div>
-                </div>
-
-                <div class="subBox">
-                    <h2 class="subHeading">Burst Threshold</h2>
-                    <div id="resultGrid">
-                        <div class="result">
-                            <h3>Total Damage</h3>
-                            <p id="damageResult"></p>
-                        </div>
-                        <div class="result">
-                            <h3>HP Pips</h3>
-                            <p id="pipResult"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="calcButtonBox">
-                    <button id="calcButton" onclick="displayOutput()">Calculate</button>
                 </div>
             </div>
         </main>

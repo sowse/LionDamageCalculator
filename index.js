@@ -133,8 +133,17 @@ function damageCalc(dmg_src_arr, debuff) {
 
 
 function displayOutput() {
-    fingerOnly=fingerFinalDamage();
-    fullBurst=[[fingerFinalDamage(),dagonDamage(),spikeDamage()], true];
-    document.getElementById("damageResult").innerHTML = damageCalc([fingerOnly], true);
-    document.getElementById("pipResult").innerHTML= Math.floor((damageCalc()/250));
+    let fingerOnly=[fingerFinalDamage()];
+    let fullBurst=[fingerFinalDamage(),dagonDamage(),spikeDamage()];
+
+    let fingerOnlyDmg = damageCalc(fingerOnly, false);
+    let fingerEthDmg = damageCalc(fingerOnly, true);
+    let fullBurstDmg = damageCalc(fullBurst, true);
+
+    document.getElementById("rawFingerOnly").innerHTML = fingerOnlyDmg;
+    document.getElementById("rawFingerEth").innerHTML = fingerEthDmg;
+    document.getElementById("rawBurst").innerHTML = fullBurstDmg;
+    document.getElementById("pipFingerOnly").innerHTML= Math.floor(fingerOnlyDmg / 250);
+    document.getElementById("pipFingerEth").innerHTML= Math.floor(fingerEthDmg / 250);
+    document.getElementById("pipFullBurst").innerHTML= Math.floor(fullBurstDmg / 250);
 };
