@@ -100,9 +100,16 @@ function ampMult() {
     return ampMult;
 };
 
-function magicResCalc() {
+function magicResCalc(eth) {
     let initRes = document.getElementById("magicRes").value;
-    let finalRes=100-((100-initRes) * magicResModifierCalc());
+    if(eth==false) {
+        ethMod = 1;
+    } else {
+        ethMod = (1-eth/100.0);
+    };
+
+    finalRes=100-((100-initRes) * magicResModifierCalc() * ethMod);
+    
     return finalRes / 100;
 };
 
@@ -120,13 +127,22 @@ function magicResModifierCalc() {
 }
 
 function damageCalc(dmg_src_arr, debuff) {
-    let baseRes = (document.getElementById("magicRes").value / 100);
-    let burst = damageSourceSum(dmg_src_arr) * ampMult()
-    console.log(burst);
-    if(debuff==true) {
-        res=(1-magicResCalc());
+    let burst = damageSourceSum(dmg_src_arr) * ampMult();
+    let etherModlist = document.getElementsByName("etherMod");
+    let etherMod = false
+
+    for(let i=0; i<etherModlist.length; i++) {
+        if(etherModlist[i].checked){
+            etherMod=etherModlist[i].value;
+        };
+    };
+
+    console.log(etherMod);
+    let res=(1-magicResCalc());
+    if(debuff==false) {
+        res=(1-magicResCalc(false));
     } else {
-        res=(1-baseRes);
+        res=(1-magicResCalc(etherMod));
     };
     return (burst*res).toFixed(2);
 };

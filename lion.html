@@ -82,29 +82,73 @@
                         <div class="modBox" id="AmpSrcBox">
                             <h2>Damage Amplification Sources</h2>        
                             <div id="outboundAmpSources">
-                                <fieldset id="kayaMult">
+                                <fieldset class="modFieldset" id="kayaMult">
                                     <legend>Kaya / Ethereal Blade</legend>
-                                    <input class="outboundAmpSource" type="radio" id="kayaNone" name="kayaEth" value="0" checked>
-                                    <label for="kayaNone">None</label>
-                                    <input class="outboundAmpSource" type="radio" id="Kaya" name="kayaEth" value="8">
-                                    <label for="Kaya">Kaya</label>
-                                    <input class="outboundAmpSource" type="radio" id="Ethereal" name="kayaEth" value="12">
-                                    <label for="Ethereal">Ethereal Blade</label>
+                                    <div class="modFieldsetItem">
+                                        <input class="outboundAmpSource" type="radio" id="kayaNone" name="kayaEth" value="0" checked>
+                                        <label for="kayaNone">None</label>
+                                    </div>
+                                    
+                                    <div class="modFieldsetItem">
+                                        <input class="outboundAmpSource" type="radio" id="Kaya" name="kayaEth" value="8">
+                                        <label for="Kaya">Kaya</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input class="outboundAmpSource" type="radio" id="Ethereal" name="kayaEth" value="12">
+                                        <label for="Ethereal">Ethereal Blade</label>
+                                    </div>
                                 </fieldset>
 
                                 
-                                <fieldset id="neutralMult">
+                                <fieldset class="modFieldset" id="neutralMult">
                                     <legend>Neutral Item</legend>
-                                        <input class="outboundAmpSource" type="radio" id="neutralNone" name="neutralItem" value="0" checked>
-                                        <label for="neutralNone">None</label>
-                                        <input class="outboundAmpSource" type="radio" id="neutralFairy" name="neutralItem" value="5">
-                                        <label for="neutralFairy">Fairy's Trinket</label>
-                                        <input class="outboundAmpSource" type="radio" id="neutralShawl" name="neutralItem" value="6">
-                                        <label for="neutralShawl">Nether Shawl</label>
-                                        <input class="outboundAmpSource" type="radio" id="neutralRelic" name="neutralItem" value="15">
-                                        <label for="neutralRelic">Timeless Relic</label>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralNone" name="neutralItem" value="0" checked>
+                                            <label for="neutralNone">None</label>
+                                        </div>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralFairy" name="neutralItem" value="5">
+                                            <label for="neutralFairy">Fairy's Trinket</label>
+                                        </div>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralShawl" name="neutralItem" value="6">
+                                            <label for="neutralShawl">Nether Shawl</label>
+                                        </div>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralRelic" name="neutralItem" value="15">
+                                            <label for="neutralRelic">Timeless Relic</label>
+                                        </div>
                                 </fieldset>
                             </div>
+
+                            <fieldset class="modFieldset" id="otherAmpFieldset">
+                                <legend>Other Amp Sources</legend>
+
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="inboundAmpSource" id="veilAmp" name="otherAmp" value="18">
+                                    <label for="veilMod">Veil of Discord</label>
+                                </div>
+
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="outboundAmpSource" id="bloodMod" name="otherAmp" value="30">
+                                    <label for="bloodMod">Bloodrage</label>
+                                </div>
+                                
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="inboundAmpSource" id="golemMod" name="otherAmp" value="35">
+                                    <label for="golemMod">Flesh Golem</label>
+                                </div>
+
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="inboundAmpSource" id="boomMod" name="otherAmp" value="20">
+                                    <label for="shroudMod">Hunter's Boomerang</label>
+                                </div>
+                            </fieldset>
                         </div>
 
                         <div class="modBox" id="resBox">
@@ -117,63 +161,77 @@
                                 <fieldset class="modFieldset" id="magicResFieldset">
                                     <legend>Magic Resistance Modifiers</legend>
                                     
-                                    <div class="resFieldsetItem">
+                                    <div class="modFieldsetItem">
                                         <input type="checkbox" class="magicResModifier" id="GroveMod" name="magicResMod" value="-15">
-                                        <label for="Ethereal">Grove Bow</label>
+                                        <label for="GroveMod">Grove Bow</label>
                                     </div>
 
-                                    <div class="resFieldsetItem">
+                                    <div class="modFieldsetItem">
                                         <input type="checkbox" class="magicResModifier" id="CeremonialMod" name="magicResMod" value="-10">
-                                        <label for="Ethereal">Ceremonial Robe</label>
+                                        <label for="CeremonialMod">Ceremonial Robe</label>
                                     </div>
                                     
-                                    <div class="resFieldsetItem">
+                                    <div class="modFieldsetItem">
                                         <input type="checkbox" class="magicResModifier" id="SealMod" name="magicResMod" value="-35">
-                                        <label for="Ethereal">Ancient Seal</label>
+                                        <label for="SealMod">Ancient Seal</label>
                                     </div>
 
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="cloakMod" name="magicResMod" value="15">
+                                        <label for="cloakMod">Cloak</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="glimmerMod" name="magicResMod" value="20">
+                                        <label for="glimmerMod">Glimmer Cape (passive)</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="glimmerActiveMod" name="magicResMod" value="50">
+                                        <label for="glimmerActiveMod">Glimmer Cape (active)</label>
+                                    </div>
                                 </fieldset>
 
                                 <fieldset class="modFieldset" id="etherealFieldset">
                                     <legend>Ethereal Modifier</legend>
                                     
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" id="noneEtherMod" name="etherMod" value="none">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" id="noneEtherMod" name="etherMod" value="0">
                                         <label for="etherBlastMod">None</label>
                                     </div>
 
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" class="magicResModifier" id="etherBlastMod" name="etherMod" value="-40">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="etherBlastMod" name="etherMod" value="-40">
                                         <label for="etherBlastMod">Ether Blast</label>
                                     </div>
 
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" class="magicResModifier" id="ghostMod" name="etherMod" value="-40">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="ghostMod" name="etherMod" value="-40">
                                         <label for="ghostMod">Ghost Scepter</label>
                                     </div>
                                     
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" class="magicResModifier" id="nihilismMod" name="etherMod" value="-40">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="nihilismMod" name="etherMod" value="-40">
                                         <label for="nihilismMod">Nihilism</label>
                                     </div>
 
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" class="magicResModifier" id="shroudMod" name="etherMod" value="-25">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="shroudMod" name="etherMod" value="-25">
                                         <label for="shroudMod">Ghost Shroud</label>
                                     </div>
 
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" class="magicResModifier" id="seekerMod" name="etherMod" value="-25">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="seekerMod" name="etherMod" value="-25">
                                         <label for="seekerMod">Death Seeker</label>
                                     </div>
 
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" class="magicResModifier" id="decrepifyMod" name="etherMod" value="-25">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="decrepifyMod" name="etherMod" value="-25">
                                         <label for="etherBlastMod">Decrepify (from Ally)</label>
                                     </div>
 
-                                    <div class="ethFieldsetItem">
-                                        <input type="radio" class="magicResModifier" id="decrepifyMod" name="etherMod" value="-60">
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="decrepifyMod" name="etherMod" value="-60">
                                         <label for="etherBlastMod">Decrepify (from Enemy)</label>
                                     </div>
                                 </fieldset>

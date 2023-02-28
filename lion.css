@@ -4,17 +4,22 @@
 
 main {
     width: 75%;
+    height: auto;
+    min-height: 900px;
     margin: 0 auto;
 }
 
 h1 {
     font-weight: 800;
+    font-size: 32px;
 }
 
 .dmgTitle {
     font-weight: 600;
 }
 #mainBox {
+    height: auto;
+    min-height: 800px;
     border-top: 1px solid black;
 }
 #dmgCalcsBox {
@@ -42,9 +47,6 @@ h1 {
 }
 
 #dmgSrcBox {
-    width: 50%;
-    min-height: 500px;
-    height: auto;
     border-right: 1px solid black;
 }
 
@@ -70,9 +72,15 @@ h1 {
 
 .subSrcBox {
     width: 50%;
+    margin-top: -20px;
+    min-height: 500px;
+    height: auto;
+    
 }
 #srcBox {
     width: 100%;
+    height: auto;
+    min-height: 600px;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -81,7 +89,6 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     margin-left: 20px;
-    row-gap: 10%;
     height: auto;
     min-height: 500px;
 }
@@ -98,8 +105,9 @@ h1 {
 }
 
 #resultsBox {
+    width: 100%;
     min-width: 500px;
-    height: 200px;
+    height: 165px;
     border-bottom: 1px solid black;
 }
 #calcButtonBox {
@@ -112,10 +120,6 @@ h1 {
     margin: 0;
 }
 
-#kayaMult, #neutralMult {
-    min-width: 339px;
-}
-
 .optionBox {
     margin-left: -4px;
 }
@@ -125,17 +129,18 @@ h1 {
     width: 50px;
 }
 
-#etherealFieldset {
+.modFieldset {
     display:flex;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
 
-.ethFieldsetItem {
-    width: 200px
+.modFieldsetItem {
+    width: 200px;
 }
 
 footer {
     width: 300px;
-    margin: 100px auto;
+    margin-top: 3px;
+    text-align: center;
 }
