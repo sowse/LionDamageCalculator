@@ -3,7 +3,7 @@
 }
 
 main {
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -11,12 +11,131 @@ h1 {
     font-weight: 800;
 }
 
-.subBox {
-    border: 1px solid black;
+.dmgTitle {
+    font-weight: 600;
 }
-
+#mainBox {
+    border-top: 1px solid black;
+}
 #dmgCalcsBox {
+    width: 65%;
+    min-width: 500px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 10px;
+}
+
+#dmgColHeadings {
+    grid-row: 1;
+    grid-column: 1 / 4;
+}
+
+#dmgRowRaw {
+    grid-row: 2;
+    grid-column: 1/ 4;
+}
+
+#dmgRowPips {
+    grid-row: 3;
+    grid-column: 1 / 4;
+}
+
+#dmgSrcBox {
+    width: 50%;
+    min-height: 500px;
+    height: auto;
+    border-right: 1px solid black;
+}
+
+#dmgSrcList {
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10%;
+}
+
+.dmgSourceContainer {
+    height: auto;
+    padding-top: 30px;
+}
+
+
+.dmgSource {
+    width: 50%;
+    margin: 10px 0;
+}
+
+.subSrcBox {
+    width: 50%;
+}
+#srcBox {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#modsBox {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    row-gap: 10%;
+    height: auto;
+    min-height: 500px;
+}
+
+.modBox {
+    min-height: 150px;
+}
+
+
+#dataBox {
+    width: 100%;
+    padding: 10px 10px 10px 0;
+    display: flex;
+}
+
+#resultsBox {
+    min-width: 500px;
+    height: 200px;
+    border-bottom: 1px solid black;
+}
+#calcButtonBox {
+    width: 30%;
+    margin: auto;
+}
+
+.dmgSourceContainer > h3 {
+    height: 50px;
+    margin: 0;
+}
+
+#kayaMult, #neutralMult {
+    min-width: 339px;
+}
+
+.optionBox {
+    margin-left: -4px;
+}
+
+#magicRes {
+    margin-left: 2px;
+    width: 50px;
+}
+
+#etherealFieldset {
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.ethFieldsetItem {
+    width: 200px
+}
+
+footer {
+    width: 300px;
+    margin: 100px auto;
 }

@@ -141,9 +141,9 @@ function displayOutput() {
     let fullBurstDmg = damageCalc(fullBurst, true);
 
     document.getElementById("rawFingerOnly").innerHTML = fingerOnlyDmg;
-    document.getElementById("rawFingerEth").innerHTML = fingerEthDmg;
+    document.getElementById("rawFingerEther").innerHTML = fingerEthDmg;
     document.getElementById("rawBurst").innerHTML = fullBurstDmg;
     document.getElementById("pipFingerOnly").innerHTML= Math.floor(fingerOnlyDmg / 250);
-    document.getElementById("pipFingerEth").innerHTML= Math.floor(fingerEthDmg / 250);
-    document.getElementById("pipFullBurst").innerHTML= Math.floor(fullBurstDmg / 250);
+    document.getElementById("pipFingerEther").innerHTML= Math.floor(fingerEthDmg / 250);
+    document.getElementById("pipBurst").innerHTML= Math.floor(fullBurstDmg / 250);
 };
