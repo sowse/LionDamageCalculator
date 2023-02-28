@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lion Burst Damage Calculator</title>
+        <link rel="stylesheet" href="lion.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;1,300&display=swap" rel="stylesheet"> 
+    </head>
+
+    <body>
+        <script src="index.js"></script>
+        <main>
+            <h1>Lion Burst Damage Calculator</h1>
+            <div id="mainBox">
+                <div id="resultsBox">
+                    <h2 class="subHeading">Kill Thresholds</h2>
+                    <div id="dataBox">
+                        <div id="dmgCalcsBox">
+                            <div class="dmgColHeading"></div>
+                            <div class="dmgColHeading dmgTitle">Finger of Death only</div>
+                            <div class="dmgColHeading dmgTitle">Finger after Ether Blast</div>
+                            <div class="dmgColHeading dmgTitle">Full Burst</div>
+                            <div class="dmgRowRaw dmgTitle">Raw HP</div>
+                            <div class="dmgRowRaw" id="rawFingerOnly"></div>
+                            <div class="dmgRowRaw" id="rawFingerEther"></div>
+                            <div class="dmgRowRaw" id="rawBurst"></div>
+                            <div class="dmgRowPips dmgTitle">HP Pips (250)</div>
+                            <div class="dmgRowPips" id="pipFingerOnly"></div>
+                            <div class="dmgRowPips" id="pipFingerEther"></div>
+                            <div class="dmgRowPips" id="pipBurst"></div>
+                        </div>
+                        
+                        <div id="calcButtonBox">
+                            <button id="calcButton" onclick="displayOutput()">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+            <br></br>
+                <div id="srcBox">
+                    <div class="subSrcBox" id="dmgSrcBox">
+                        <h2 class="subHeading">Damage Sources</h2>
+                        <div id="dmgSrcList">
+                            <div class="dmgSourceContainer">
+                                <h3>Finger of Death Level</h3>
+                                <input class="dmgSource" type="number" min="1" max="3" value="1" id="fingerInput">
+                                <div class="optionBox">
+                                    <input type="checkbox" id="Agha" name="Agha" value="100">
+                                    <label for="Agha">Aghanim's Scepter</label>
+                                </div>
+                            </div>
+
+                            <div class="dmgSourceContainer">
+                                <h3>Finger of Death Stacks</h3>
+                                <input class="dmgSource" type="number" min="0" max="999" value="0" id="stackInput">
+                                <div class="optionBox">
+                                    <input type="checkbox" id="Talent" name="Talent" value="20">
+                                    <label for="Talent">Level 20 Talent</label>
+                                </div>
+                            </div>
+
+                            <div class="dmgSourceContainer">
+                                <h3>Dagon Level</h3>
+                                <input class="dmgSource" type="number" min="0" max="5" value="0" id="dagonInput">
+                            </div>
+
+                            <div class="dmgSourceContainer">
+                                <h3>Earth Spike Level</h3>
+                                <input class="dmgSource" type="number" min="0" max="4" value="0" id="spikeInput">
+                            
+                                <div class="optionBox">
+                                    <input type="checkbox" id="spikeTalent" name="spikeTalent" value="65">
+                                    <label for="spikeTalent">Level 10 Talent</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="subSrcBox" id="modsBox">
+                        <div class="modBox" id="AmpSrcBox">
+                            <h2>Damage Amplification Sources</h2>        
+                            <div id="outboundAmpSources">
+                                <fieldset class="modFieldset" id="kayaMult">
+                                    <legend>Kaya / Ethereal Blade</legend>
+                                    <div class="modFieldsetItem">
+                                        <input class="outboundAmpSource" type="radio" id="kayaNone" name="kayaEth" value="0" checked>
+                                        <label for="kayaNone">None</label>
+                                    </div>
+                                    
+                                    <div class="modFieldsetItem">
+                                        <input class="outboundAmpSource" type="radio" id="Kaya" name="kayaEth" value="8">
+                                        <label for="Kaya">Kaya</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input class="outboundAmpSource" type="radio" id="Ethereal" name="kayaEth" value="12">
+                                        <label for="Ethereal">Ethereal Blade</label>
+                                    </div>
+                                </fieldset>
+
+                                
+                                <fieldset class="modFieldset" id="neutralMult">
+                                    <legend>Neutral Item</legend>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralNone" name="neutralItem" value="0" checked>
+                                            <label for="neutralNone">None</label>
+                                        </div>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralFairy" name="neutralItem" value="5">
+                                            <label for="neutralFairy">Fairy's Trinket</label>
+                                        </div>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralShawl" name="neutralItem" value="6">
+                                            <label for="neutralShawl">Nether Shawl</label>
+                                        </div>
+
+                                        <div class="modFieldsetItem">
+                                            <input class="outboundAmpSource" type="radio" id="neutralRelic" name="neutralItem" value="15">
+                                            <label for="neutralRelic">Timeless Relic</label>
+                                        </div>
+                                </fieldset>
+                            </div>
+
+                            <fieldset class="modFieldset" id="otherAmpFieldset">
+                                <legend>Other Amp Sources</legend>
+
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="inboundAmpSource" id="veilAmp" name="otherAmp" value="18">
+                                    <label for="veilMod">Veil of Discord</label>
+                                </div>
+
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="outboundAmpSource" id="bloodMod" name="otherAmp" value="30">
+                                    <label for="bloodMod">Bloodrage</label>
+                                </div>
+                                
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="inboundAmpSource" id="golemMod" name="otherAmp" value="35">
+                                    <label for="golemMod">Flesh Golem</label>
+                                </div>
+
+                                <div class="modFieldsetItem">
+                                    <input type="checkbox" class="inboundAmpSource" id="boomMod" name="otherAmp" value="20">
+                                    <label for="shroudMod">Hunter's Boomerang</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="modBox" id="resBox">
+                            <h2 class="subHeading">Target Magic Resistance / Damage Reduction</h2>
+
+                            <input type="number" id="magicRes" min="-999" max="100" value="25">
+                            <label for="magicRes">Magic Resistance (%)</label>
+
+                            <div id="magicResModBox">
+                                <fieldset class="modFieldset" id="magicResFieldset">
+                                    <legend>Magic Resistance Modifiers</legend>
+                                    
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="GroveMod" name="magicResMod" value="-15">
+                                        <label for="GroveMod">Grove Bow</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="CeremonialMod" name="magicResMod" value="-10">
+                                        <label for="CeremonialMod">Ceremonial Robe</label>
+                                    </div>
+                                    
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="SealMod" name="magicResMod" value="-35">
+                                        <label for="SealMod">Ancient Seal</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="cloakMod" name="magicResMod" value="15">
+                                        <label for="cloakMod">Cloak</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="glimmerMod" name="magicResMod" value="20">
+                                        <label for="glimmerMod">Glimmer Cape (passive)</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="checkbox" class="magicResModifier" id="glimmerActiveMod" name="magicResMod" value="50">
+                                        <label for="glimmerActiveMod">Glimmer Cape (active)</label>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="modFieldset" id="etherealFieldset">
+                                    <legend>Ethereal Modifier</legend>
+                                    
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" id="noneEtherMod" name="etherMod" value="0">
+                                        <label for="etherBlastMod">None</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="etherBlastMod" name="etherMod" value="-40">
+                                        <label for="etherBlastMod">Ether Blast</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="ghostMod" name="etherMod" value="-40">
+                                        <label for="ghostMod">Ghost Scepter</label>
+                                    </div>
+                                    
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="nihilismMod" name="etherMod" value="-40">
+                                        <label for="nihilismMod">Nihilism</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="shroudMod" name="etherMod" value="-25">
+                                        <label for="shroudMod">Ghost Shroud</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="seekerMod" name="etherMod" value="-25">
+                                        <label for="seekerMod">Death Seeker</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="decrepifyMod" name="etherMod" value="-25">
+                                        <label for="etherBlastMod">Decrepify (from Ally)</label>
+                                    </div>
+
+                                    <div class="modFieldsetItem">
+                                        <input type="radio" class="etherModifier" id="decrepifyMod" name="etherMod" value="-60">
+                                        <label for="etherBlastMod">Decrepify (from Enemy)</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>v 1.0 | &#169; Comradeer Productions</footer>
+    </body>
+</html>
